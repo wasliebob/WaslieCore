@@ -1,0 +1,16 @@
+[
+{
+  "modid": "WaslieCore",
+  "name": "WaslieCore",
+  "description": "Core for all Wasliebob's mods.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Wasliebob"],
+  "credits": "Wasliebob: For creating this",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
