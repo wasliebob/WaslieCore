@@ -16,7 +16,7 @@ public class OnPlayerJoinEvent {
 	@SubscribeEvent
     public void joinEvent(EntityJoinWorldEvent e)
     {
-		if(e.world.isRemote){
+		if(!e.world.isRemote){
 			if(e.entity instanceof EntityPlayer){
 				EntityPlayer player = (EntityPlayer)e.entity;
 				if(player.getDisplayName() != null){
@@ -24,15 +24,11 @@ public class OnPlayerJoinEvent {
 						player.addChatComponentMessage(new ChatComponentText(EnumChatFormatting.RED + "[WaslieCore] " + EnumChatFormatting.GRAY + "Thank you for donating, it is helping me a lot."));
 					
 						if(player.getEntityData().getBoolean("WsC_Donator") == false){				
-//							for(int i = 0; i < RewardHelper.rewards.get(FileHelper.getAmount(player.getDisplayName())).length; i++){
 							for(ItemStack stack : RewardHelper.getReward(FileHelper.getAmount(player.getDisplayName()))){
-//								ItemStack stack = RewardHelper.rewards.get(FileHelper.getAmount(player.getDisplayName()))[i];
 								player.inventory.addItemStackToInventory(stack);
 							}
 							player.getEntityData().setBoolean("WsC_Donator", true);
-							player.addChatComponentMessage(new ChatComponentText(EnumChatFormatting.RED + "[WaslieCore] " + EnumChatFormatting.GRAY + "Received Reward: " + player.getEntityData().getBoolean("WsC_Donator")));
 						}else if(player.getEntityData().getBoolean("WsC_Donator") == true){
-							player.addChatComponentMessage(new ChatComponentText(EnumChatFormatting.RED + "[WaslieCore] " + EnumChatFormatting.GRAY + "Received Reward: " + player.getEntityData().getBoolean("WsC_Donator")));
 						}
 					}
 				}

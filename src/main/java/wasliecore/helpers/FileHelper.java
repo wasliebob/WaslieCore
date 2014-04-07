@@ -75,7 +75,11 @@ public class FileHelper {
 	
 	public static HashMap<String, Double> getDonators()
 	{
-		HashMap<String, Double> map = new HashMap<String, Double>();
+		return donators;
+	}
+	
+	public static void addDonators()
+	{
 		try{
 			URL url = new URL("https://dl.dropboxusercontent.com/u/46500170/Site/donator_list.txt");
 
@@ -85,16 +89,15 @@ public class FileHelper {
 				String[] total = scanner.nextLine().split(":");
 				String name = total[0];	
 				double amount = Double.parseDouble(total[1]);
-				map.put(name, amount);
+				donators.put(name, amount);
 			}
 			scanner.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		return map;
 	}
-		
+	public static HashMap<String, Double> donators = new HashMap<String, Double>();
+	
 	public static boolean isDonator(String name)
 	{
 		return getDonators().containsKey(name);

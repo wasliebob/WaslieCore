@@ -29,9 +29,7 @@ public class WaslieCore {
 		Config.loadConfig(event);
 		
     	FileHelper.createMainFolder();
-//    	FileHelper.getDonators();
-    	RewardHelper.addRewards(2.50, new ItemStack[]{new ItemStack(Items.apple)});
-    	RewardHelper.addRewards(5.00, new ItemStack[]{new ItemStack(Items.diamond_pickaxe)});
+    	FileHelper.addDonators();
     }
     
     @EventHandler
