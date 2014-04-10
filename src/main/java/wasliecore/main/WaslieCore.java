@@ -40,6 +40,5 @@ public class WaslieCore {
     {
     	if(evt.getSide() == Side.CLIENT){
     		MinecraftForge.EVENT_BUS.register(new OnPreRenderEvent());}
-//    	MinecraftForge.EVENT_BUS.register(new OnPlayerJoinEvent());
     }
 }
