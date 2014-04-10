@@ -25,7 +25,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class OnPreRenderEvent {
-        private final String serverLocation = "https://dl.dropboxusercontent.com/u/46500170/Site/Builds/cape.png";
+        private final String serverLocation = "https://dl.dropboxusercontent.com/u/46500170/Site/Builds/FE2_CAPE.txt";
         private final int timeout = 1000;
 
         private static final Graphics TEST_GRAPHICS = new BufferedImage(128, 128,
