@@ -1,9 +1,7 @@
 package wasliecore.main;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import wasliecore.handlers.events.OnPlayerJoinEvent;
+import wasliecore.handlers.events.OnPreRenderEvent;
 import wasliecore.helpers.FileHelper;
 import wasliecore.helpers.RewardHelper;
 import cpw.mods.fml.common.Mod;
@@ -12,6 +10,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = "WaslieCore", name = "WaslieCore", version = "1.0")
 public class WaslieCore {
@@ -28,6 +27,7 @@ public class WaslieCore {
 		Config config = new Config();
 		Config.loadConfig(event);
 		
+		RewardHelper.initRewards();
     	FileHelper.createMainFolder();
     	FileHelper.addDonators();
     }
@@ -38,6 +38,8 @@ public class WaslieCore {
     @EventHandler
     public void postInit(FMLPostInitializationEvent evt)
     {
-    	MinecraftForge.EVENT_BUS.register(new OnPlayerJoinEvent());
+    	if(evt.getSide() == Side.CLIENT){
+    		MinecraftForge.EVENT_BUS.register(new OnPreRenderEvent());}
+//    	MinecraftForge.EVENT_BUS.register(new OnPlayerJoinEvent());
     }
 }

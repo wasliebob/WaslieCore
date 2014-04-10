@@ -16,7 +16,6 @@ public class OnPlayerJoinEvent {
 	@SubscribeEvent
     public void joinEvent(EntityJoinWorldEvent e)
     {
-		if(!e.world.isRemote){
 			if(e.entity instanceof EntityPlayer){
 				EntityPlayer player = (EntityPlayer)e.entity;
 				if(player.getDisplayName() != null){
@@ -34,5 +33,4 @@ public class OnPlayerJoinEvent {
 				}
 			}
 		}
-    }
 }

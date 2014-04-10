@@ -13,7 +13,7 @@ import wasliecore.main.Config;
 public class FileHelper {
 
 	public static void createMainFolder() {
-		File file = new File(Config.mapLocation + "/WaslieCore/");
+		File file = new File(Config.mapLocation + "\\WaslieCore\\");
 		if(!file.exists())
 			file.mkdir();
 	}
@@ -23,7 +23,7 @@ public class FileHelper {
 	 * @param modName
 	 */
 	public static void createModFolder(String modName){
-		File file = new File(Config.mapLocation  + "/WaslieCore/" + modName + "/");
+		File file = new File(Config.mapLocation  + "\\WaslieCore\\" + modName + "\\");
 		if(!file.exists())
 			file.mkdir();
 		}
@@ -36,10 +36,10 @@ public class FileHelper {
 	 * @param map
 	 */
 	public static void createBaseFileInFolder(String modName, String fileName, String extension, HashMap<Integer, String> map){
-		File file = new File(Config.mapLocation + "/WaslieCore/" +  modName + "/" + fileName + "." + extension);
+		File file = new File(Config.mapLocation + "\\WaslieCore\\" +  modName + "\\" + fileName + "." + extension);
 		try {
 			file.createNewFile();
-			PrintWriter writer = new PrintWriter(Config.mapLocation + "/WaslieCore/"+ modName + fileName + "." + extension, "UTF-8");
+			PrintWriter writer = new PrintWriter(Config.mapLocation + "\\WaslieCore\\"+ modName + fileName + "." + extension, "UTF-8");
 			
 			for(int i = 0; i < map.size(); i++)
 				if(map.get(i) != null)
@@ -58,10 +58,10 @@ public class FileHelper {
 	 * @param list
 	 */
 	public static void createBaseFileOutsideFolder(String fileName, String extension, ArrayList<String> list){
-		File file = new File(Config.mapLocation + "/WaslieCore/" + fileName + "." + extension);
+		File file = new File(Config.mapLocation + "\\WaslieCore\\" + fileName + "." + extension);
 		try {
 			file.createNewFile();
-			PrintWriter writer = new PrintWriter(Config.mapLocation + "/WaslieCore/" + fileName + "." + extension, "UTF-8");
+			PrintWriter writer = new PrintWriter(Config.mapLocation + "\\WaslieCore\\" + fileName + "." + extension, "UTF-8");
 			
 			for(int i = 0; i < list.size(); i++)
 				if(list.get(i) != null)
