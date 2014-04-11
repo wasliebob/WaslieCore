@@ -5,8 +5,12 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class UpdateHelper {
 	
+	@SideOnly(Side.CLIENT)
 	public static Double getVersion(String modName)
 	{
 		try{
@@ -25,6 +29,7 @@ public class UpdateHelper {
 		return null;
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static String getText(String modName)
 	{
 		try{
@@ -45,6 +50,7 @@ public class UpdateHelper {
 	}
 	
 	
+	@SideOnly(Side.CLIENT)
 	public static HashMap<Double, String> getUpdate(String modName)
 	{
 		try{
