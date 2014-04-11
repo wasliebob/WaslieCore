@@ -12,13 +12,13 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = "WaslieCore", name = "WaslieCore", version = "1.0")
+@Mod(modid = WaslieCore.modName, name = WaslieCore.modName, version = WaslieCore.version)
 public class WaslieCore {
     @Instance("WaslieCore")
     public static WaslieCore instance;
-    public static String version = "1.0";
-    public static String modName = "WaslieCore";
-    public static String alias = "WsC";
+    public static final String version = "1.0";
+    public static final String modName = "WaslieCore";
+    public static final String alias = "WsC";
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
