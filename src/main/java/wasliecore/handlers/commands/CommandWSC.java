@@ -1,5 +1,6 @@
 package wasliecore.handlers.commands;
 
+import wasliecore.helpers.DateHelper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,7 +28,8 @@ public class CommandWSC extends CommandBase{
 					String[] commands = new String[]{
 							"/wsc help",
 							"/wsc dev",
-							"/wsc mods"};
+							"/wsc mods",
+							"/wsc date"};
 					sendArray(player, commands);
 				}else if(array[0] != null && array[0].equals("dev")){
 					if(array.length >= 2 && array[1] != null && array[1].equals("twitter")){
@@ -35,6 +37,7 @@ public class CommandWSC extends CommandBase{
 						}else if(array.length >= 2 && array[1] != null && array[1].equals("mods")){
 							String[] mods = new String[]{
 								"Thaumcraft Extras",
+								"Thaumcraft Extras 2",
 								"Forestry Extras",
 								"Forestry Extras 2"};
 							sendArray(player, mods);
@@ -52,8 +55,11 @@ public class CommandWSC extends CommandBase{
 						}
 				}else if(array[0] != null && array[0].equals("mods")){
 					String[] mods = new String[]{
-						"Forestry Extras 2",};
+						"Forestry Extras 2",
+						"Thaumcraft Extras 2"};
 					sendArray(player, mods);
+				}else if(array[0] != null && array[0].equals("date")){
+					sendMessage(player, DateHelper.getCurrentFullDate());
 				}else{
 					
 				}
