@@ -1,5 +1,7 @@
 package wasliecore.helpers;
 
+import java.util.Calendar;
+
 public class MathHelper {	
 	/**
 	 * 
@@ -75,5 +77,10 @@ public class MathHelper {
 		int ticks = seconds*20;
 		
 		return ticks;
+	}
+	
+	public static int calculateAge(int birthYear){
+		 int year = Calendar.getInstance().get(Calendar.YEAR);	
+		 return (year - birthYear);
 	}
 }

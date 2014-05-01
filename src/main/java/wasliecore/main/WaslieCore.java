@@ -17,14 +17,14 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = WaslieCore.modName, name = WaslieCore.modName, version = "1.0")
+@Mod(modid = WaslieCore.modName, name = WaslieCore.modName, version = "1.1")
 public class WaslieCore {
     @SidedProxy(clientSide = "wasliecore.proxies.ClientProxy", serverSide = "wasliecore.proxies.CommonProxy")
     public static CommonProxy proxy;
 
     @Instance("WaslieCore")
     public static WaslieCore instance;
-    public static final double version = 1.09;
+    public static final double version = 1.1;
     public static final String modName = "WaslieCore";
     public static final String alias = "WsC";
     
@@ -39,6 +39,7 @@ public class WaslieCore {
 		RewardHelper.initRewards();
     	FileHelper.createMainFolder();
     	FileHelper.addDonators();
+    	System.out.println("WaslieCore is brought to you by wasliebob");
     }
     
     @EventHandler
@@ -63,11 +64,5 @@ public class WaslieCore {
     	}else{
     		event.registerServerCommand(new CommandWSC());
     	}
-//    	if(MinecraftServer.getServer() != null){
-//             MinecraftServer server = MinecraftServer.getServer();
-//             ICommandManager command = server.getCommandManager();
-//             ServerCommandManager manager = (ServerCommandManager) command;
-//             manager.registerCommand(new CommandWSC());
-//    	}
     }
 }

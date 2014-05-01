@@ -14,4 +14,9 @@ public class ColorHelper {
 	{
 		return color.getRGB();
 	}
+	
+	public int getColorCodeFromName(String name)
+	{
+		return Color.getColor(name).getRGB();
+	}
 }
