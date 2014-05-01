@@ -58,7 +58,11 @@ public class WaslieCore {
     @Mod.EventHandler
     public void serverStart(FMLServerStartingEvent event)
     {
-    	event.registerServerCommand(new CommandWSC());
+    	if((Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment")){
+    		System.out.println("WaslieCore is running in a dev envoirment, ignoring all events");
+    	}else{
+    		event.registerServerCommand(new CommandWSC());
+    	}
 //    	if(MinecraftServer.getServer() != null){
 //             MinecraftServer server = MinecraftServer.getServer();
 //             ICommandManager command = server.getCommandManager();

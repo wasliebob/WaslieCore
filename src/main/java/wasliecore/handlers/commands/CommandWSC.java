@@ -69,11 +69,6 @@ public class CommandWSC extends CommandBase{
 		}
 	}
 
-	public void setColor(int color, EntityPlayer player)
-	{
-		player.getCurrentEquippedItem().stackTagCompound.setInteger("Color" + player.getDisplayName(), color);
-	}
-
 	@Override
 	public int compareTo(Object arg0) {
 		return 0;
