@@ -1,9 +1,6 @@
 package wasliecore.main;
 
-import net.minecraft.command.ICommandManager;
-import net.minecraft.command.ServerCommandManager;
 import net.minecraft.launchwrapper.Launch;
-import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import wasliecore.handlers.commands.CommandWSC;
 import wasliecore.handlers.events.OnPreRenderEvent;
@@ -58,14 +55,15 @@ public class WaslieCore {
     	}
     }
     
-    @EventHandler
+    @Mod.EventHandler
     public void serverStart(FMLServerStartingEvent event)
     {
-    	if(MinecraftServer.getServer() != null){
-             MinecraftServer server = MinecraftServer.getServer();
-             ICommandManager command = server.getCommandManager();
-             ServerCommandManager manager = (ServerCommandManager) command;
-             manager.registerCommand(new CommandWSC());
-    	}
+    	event.registerServerCommand(new CommandWSC());
+//    	if(MinecraftServer.getServer() != null){
+//             MinecraftServer server = MinecraftServer.getServer();
+//             ICommandManager command = server.getCommandManager();
+//             ServerCommandManager manager = (ServerCommandManager) command;
+//             manager.registerCommand(new CommandWSC());
+//    	}
     }
 }
