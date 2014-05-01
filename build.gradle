@@ -22,7 +22,7 @@ group= "WaslieCore" // http://maven.apache.org/guides/mini/guide-naming-conventi
 archivesBaseName = "WaslieCore"
 
 minecraft {
-    version = "1.7.2-10.12.0.1053"
+    version = "1.7.2-10.12.1.1060"
     assetDir = "eclipse/assets"
 }
 processResources

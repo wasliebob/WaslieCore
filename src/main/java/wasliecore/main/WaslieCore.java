@@ -61,9 +61,11 @@ public class WaslieCore {
     @EventHandler
     public void serverStart(FMLServerStartingEvent event)
     {
+    	if(MinecraftServer.getServer() != null){
              MinecraftServer server = MinecraftServer.getServer();
              ICommandManager command = server.getCommandManager();
              ServerCommandManager manager = (ServerCommandManager) command;
              manager.registerCommand(new CommandWSC());
+    	}
     }
 }
