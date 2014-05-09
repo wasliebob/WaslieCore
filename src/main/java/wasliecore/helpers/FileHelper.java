@@ -30,19 +30,29 @@ public class FileHelper {
 	}
 	
 	public static void createMainFolder() {
-		File file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash());
-		if(!file.exists())
-			file.mkdir();
+		File file;
+		try{
+			file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash());
+			if(!file.exists())
+				file.mkdir();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	/**
 	 * @param modName
 	 */
 	public static void createModFolder(String modName){
-		File file = new File(Config.mapLocation  + getSlash() + "WaslieCore" + getSlash() + modName + getSlash());
-		if(!file.exists())
-			file.mkdir();
+		File file;
+		try{
+			file = new File(Config.mapLocation  + getSlash() + "WaslieCore" + getSlash() + modName + getSlash());
+			if(!file.exists())
+				file.mkdir();
+		}catch(Exception e){
+			e.printStackTrace();
 		}
+	}
 	
 	/**
 	 * @param modName
@@ -51,8 +61,9 @@ public class FileHelper {
 	 * @param map
 	 */
 	public static void createBaseFileInFolder(String modName, String fileName, String extension, HashMap<Integer, String> map){
-		File file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + modName + getSlash() + fileName + "." + extension);
+		File file;
 		try {
+			file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + modName + getSlash() + fileName + "." + extension);
 			file.createNewFile();
 			PrintWriter writer = new PrintWriter(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + modName + fileName + "." + extension, "UTF-8");
 			
@@ -72,8 +83,9 @@ public class FileHelper {
 	 * @param list
 	 */
 	public static void createBaseFileOutsideFolder(String fileName, String extension, ArrayList<String> list){
-		File file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + fileName + "." + extension);
+		File file;
 		try {
+			file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + fileName + "." + extension);
 			file.createNewFile();
 			PrintWriter writer = new PrintWriter(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + fileName + "." + extension, "UTF-8");
 			
