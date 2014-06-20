@@ -39,6 +39,7 @@ public class WaslieCore {
 		RewardHelper.initRewards();
     	FileHelper.createMainFolder();
     	FileHelper.addDonators();
+    	
     	System.out.println("WaslieCore is brought to you by wasliebob");
     }
     
