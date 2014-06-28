@@ -27,6 +27,7 @@ public class WaslieCore {
     public static final double version = 1.1;
     public static final String modName = "WaslieCore";
     public static final String alias = "WsC";
+    public static String configLocation;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -35,6 +36,7 @@ public class WaslieCore {
 		@SuppressWarnings("unused")
 		Config config = new Config();
 		Config.loadConfig(event);
+		configLocation = event.getModConfigurationDirectory().toString();
 		
 		RewardHelper.initRewards();
     	FileHelper.createMainFolder();

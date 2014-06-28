@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import wasliecore.main.Config;
+import wasliecore.main.WaslieCore;
 
 public class FileHelper {
 	
@@ -32,7 +32,7 @@ public class FileHelper {
 	public static void createMainFolder() {
 		File file;
 		try{
-			file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash());
+			file = new File(WaslieCore.configLocation + getSlash() + "WaslieCore" + getSlash());
 			if(!file.exists())
 				file.mkdir();
 		}catch(Exception e){
@@ -46,7 +46,7 @@ public class FileHelper {
 	public static void createModFolder(String modName){
 		File file;
 		try{
-			file = new File(Config.mapLocation  + getSlash() + "WaslieCore" + getSlash() + modName + getSlash());
+			file = new File(WaslieCore.configLocation  + getSlash() + "WaslieCore" + getSlash() + modName + getSlash());
 			if(!file.exists())
 				file.mkdir();
 		}catch(Exception e){
@@ -63,9 +63,9 @@ public class FileHelper {
 	public static void createBaseFileInFolder(String modName, String fileName, String extension, HashMap<Integer, String> map){
 		File file;
 		try {
-			file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + modName + getSlash() + fileName + "." + extension);
+			file = new File(WaslieCore.configLocation + getSlash() + "WaslieCore" + getSlash() + modName + getSlash() + fileName + "." + extension);
 			file.createNewFile();
-			PrintWriter writer = new PrintWriter(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + modName + fileName + "." + extension, "UTF-8");
+			PrintWriter writer = new PrintWriter(WaslieCore.configLocation + getSlash() + "WaslieCore" + getSlash() + modName + fileName + "." + extension, "UTF-8");
 			
 			for(int i = 0; i < map.size(); i++)
 				if(map.get(i) != null)
@@ -85,9 +85,9 @@ public class FileHelper {
 	public static void createBaseFileOutsideFolder(String fileName, String extension, ArrayList<String> list){
 		File file;
 		try {
-			file = new File(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + fileName + "." + extension);
+			file = new File(WaslieCore.configLocation + getSlash() + "WaslieCore" + getSlash() + fileName + "." + extension);
 			file.createNewFile();
-			PrintWriter writer = new PrintWriter(Config.mapLocation + getSlash() + "WaslieCore" + getSlash() + fileName + "." + extension, "UTF-8");
+			PrintWriter writer = new PrintWriter(WaslieCore.configLocation + getSlash() + "WaslieCore" + getSlash() + fileName + "." + extension, "UTF-8");
 			
 			for(int i = 0; i < list.size(); i++)
 				if(list.get(i) != null)
