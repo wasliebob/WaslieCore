@@ -6,6 +6,7 @@ import wasliecore.handlers.commands.CommandWSC;
 import wasliecore.handlers.events.OnPreRenderEvent;
 import wasliecore.helpers.FileHelper;
 import wasliecore.helpers.RewardHelper;
+import wasliecore.misc.MiscRegister;
 import wasliecore.proxies.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -28,6 +29,7 @@ public class WaslieCore {
     public static final String modName = "WaslieCore";
     public static final String alias = "WsC";
     public static String configLocation;
+    public static MiscRegister register_misc = new MiscRegister();
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -41,6 +43,8 @@ public class WaslieCore {
 		RewardHelper.initRewards();
     	FileHelper.createMainFolder();
     	FileHelper.addDonators();
+
+    	register_misc.preInit();
     	
     	System.out.println("WaslieCore is brought to you by wasliebob");
     }
