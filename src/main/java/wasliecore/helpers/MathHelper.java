@@ -1,6 +1,7 @@
 package wasliecore.helpers;
 
 import java.util.Calendar;
+import java.util.HashSet;
 
 public class MathHelper {	
 	/**
@@ -82,5 +83,62 @@ public class MathHelper {
 	public static int calculateAge(int birthYear){
 		 int year = Calendar.getInstance().get(Calendar.YEAR);	
 		 return (year - birthYear);
+	}
+	
+	/**
+	 * Inbetween does NOT include start and end numbers itself
+	 */
+	public static boolean inBetween(int start, int end, int number){
+		return number > start && number < end;
+	}
+	
+	public static String convertByteArray(Byte[] bytes){
+		String s = null;
+		for(Byte b : bytes){
+			s += b.toString();
+		}
+		return s;
+	}
+	
+	public static HashSet<String> convertStringSet(String[] strings){
+		HashSet<String> set = new HashSet<String>();
+		
+		for(String s : strings)
+			set.add(s);
+		return set;
+	}
+	
+	public static String[] convertStringArray(HashSet<String> set){
+		return (String[])set.toArray();
+	}
+	
+	public static int calculateDistance(int from, int to){
+		if(from > to)
+			return from - to;
+		else if(to > from)
+			return to - from;
+		
+		return 0;
+	}
+	
+	public static double percent(double value, double percent){
+		double difference = value/100*percent;
+		return difference;
+	}
+	
+	public static double average(double[] values){
+		double total = 0;
+		
+		for(int i = 0; i < values.length; i++){
+			total = total + values[i];
+		}
+		
+		double average = total/values.length;
+		return average;
+	}
+	
+	public static double decreaseDecimals(double value, int decimals){
+		double dec = (double)Math.round(value * decimals) / decimals;
+		return dec;
 	}
 }

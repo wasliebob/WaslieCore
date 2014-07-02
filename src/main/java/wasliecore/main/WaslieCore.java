@@ -5,6 +5,7 @@ import net.minecraftforge.common.MinecraftForge;
 import wasliecore.handlers.commands.CommandWSC;
 import wasliecore.handlers.events.OnPreRenderEvent;
 import wasliecore.helpers.FileHelper;
+import wasliecore.helpers.MathHelper;
 import wasliecore.helpers.RewardHelper;
 import wasliecore.misc.MiscRegister;
 import wasliecore.proxies.CommonProxy;

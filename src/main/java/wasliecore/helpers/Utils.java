@@ -3,6 +3,7 @@ package wasliecore.helpers;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -27,7 +28,7 @@ public class Utils {
 	}
 	
 	/**
-	 * @category wasliebob
+	 * @author wasliebob
 	 */
 	public static Block getTargetBlock(EntityPlayer player){
 		MovingObjectPosition mop = getMovingObjectPosition(player);
@@ -44,7 +45,7 @@ public class Utils {
 	}
 	
 	/**
-	 * author wasliebob
+	 * @author wasliebob
 	 */
 	public static TileEntity getTargetTile(EntityPlayer player){
 		MovingObjectPosition mop = getMovingObjectPosition(player);
@@ -61,7 +62,7 @@ public class Utils {
 	}
 	
 	/**
-	 * author wasliebob
+	 * @author wasliebob
 	 */
 	public static int getTargetBlockMeta(EntityPlayer player){
 		MovingObjectPosition mop = getMovingObjectPosition(player);
@@ -79,7 +80,7 @@ public class Utils {
 	}
 	
 	/**
-	 * author wasliebob
+	 * @author wasliebob
 	 */
 	public static int getTargetX(EntityPlayer player){
 		MovingObjectPosition mop = getMovingObjectPosition(player);
@@ -89,7 +90,7 @@ public class Utils {
 	}
 	
 	/**
-	 * author wasliebob
+	 * @author wasliebob
 	 */
 	public static int getTargetY(EntityPlayer player){
 		MovingObjectPosition mop = getMovingObjectPosition(player);
@@ -99,7 +100,7 @@ public class Utils {
 	}
 	
 	/**
-	 * author wasliebob
+	 * @author wasliebob
 	 */
 	public static int getTargetZ(EntityPlayer player){
 		MovingObjectPosition mop = getMovingObjectPosition(player);
@@ -109,7 +110,7 @@ public class Utils {
 	}
 	
 	/**
-	 * author wasliebob
+	 * @author wasliebob
 	 */
     public static void dropBlock(World world, int x, int y, int z, ItemStack stack){
         float f = 0.7F;
@@ -122,7 +123,7 @@ public class Utils {
     }
     
 	/**
-	 * author wasliebob
+	 * @author wasliebob
 	 */
     public static void dropContent(World world, int x, int y, int z){
         Random rand = new Random();
@@ -160,9 +161,16 @@ public class Utils {
     }
     
     /**
-     * author wasliebob
+     * @author wasliebob
      */
 	public static boolean hasCompound(ItemStack stack){
 		return stack.hasTagCompound();
+	}
+	
+	/**
+	 * @author wasliebob
+	 */
+	public static Minecraft getMC(){
+		return Minecraft.getMinecraft();
 	}
 }
