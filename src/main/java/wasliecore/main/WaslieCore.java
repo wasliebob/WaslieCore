@@ -1,11 +1,17 @@
 package wasliecore.main;
 
 import net.minecraft.launchwrapper.Launch;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.MinecraftForge;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import wasliecore.handlers.commands.CommandWSC;
 import wasliecore.handlers.events.OnPreRenderEvent;
 import wasliecore.helpers.FileHelper;
-import wasliecore.helpers.MathHelper;
+import wasliecore.helpers.IMCHelper;
+import wasliecore.helpers.NBTHelper;
 import wasliecore.helpers.RewardHelper;
 import wasliecore.misc.MiscRegister;
 import wasliecore.proxies.CommonProxy;
@@ -14,6 +20,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
@@ -31,7 +38,8 @@ public class WaslieCore {
     public static final String alias = "WsC";
     public static String configLocation;
     public static MiscRegister register_misc = new MiscRegister();
-    
+	public static final Logger logger = LogManager.getLogger(WaslieCore.modName);
+	
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {	
@@ -48,6 +56,12 @@ public class WaslieCore {
     	register_misc.preInit();
     	
     	System.out.println("WaslieCore is brought to you by wasliebob");
+    	
+    	NBTTagCompound tag = NBTHelper.createTagCompound();
+    	tag.setBoolean(IMCHelper.author_wasliebob, true);
+    	tag.setBoolean(IMCHelper.mod_wasliecore, true);
+
+    	FMLInterModComms.sendMessage("WaslieCore", IMCHelper.message_register, tag);
     }
     
     @EventHandler
@@ -73,4 +87,15 @@ public class WaslieCore {
     		event.registerServerCommand(new CommandWSC());
     	}
     }
+    
+	@EventHandler
+	public void imcCallback(FMLInterModComms.IMCEvent e){
+		for (final FMLInterModComms.IMCMessage m : e.getMessages()){
+			if (m.key.equalsIgnoreCase(IMCHelper.message_register)){
+				if(m.isNBTMessage()){
+					IMCHelper.handleIMCStuff(m);
+				}
+			}
+		}
+	}
 }

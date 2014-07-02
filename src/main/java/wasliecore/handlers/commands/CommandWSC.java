@@ -1,11 +1,14 @@
 package wasliecore.handlers.commands;
 
-import wasliecore.helpers.DateHelper;
+import java.util.HashSet;
+
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import wasliecore.helpers.DateHelper;
+import wasliecore.helpers.ModHelper;
 public class CommandWSC extends CommandBase{
 
 	@Override
@@ -35,12 +38,7 @@ public class CommandWSC extends CommandBase{
 					if(array.length >= 2 && array[1] != null && array[1].equals("twitter")){
 							sendMessage(player, EnumChatFormatting.BLUE + "https://twitter.com/Wasliebob");
 						}else if(array.length >= 2 && array[1] != null && array[1].equals("mods")){
-							String[] mods = new String[]{
-								"Thaumcraft Extras",
-								"Thaumcraft Extras 2",
-								"Forestry Extras",
-								"Forestry Extras 2"};
-							sendArray(player, mods);
+							sendSet(player, ModHelper.createdByWasliebob);
 						}else if(array.length >= 2 && array[1] != null && array[1].equals("donate")){
 							sendMessage(player, EnumChatFormatting.BLUE + "Want to support wasliebob with all his hard work feel free to donate at " + "https://www.paypal.com/nl/cgi-bin/webscr?cmd=_flow&SESSION=vw4Zf6DkU80NwwFJOcVcBtQpTnqX7ddlTbPk9awAXPqbKM2FU23rE-x4SL4&dispatch=5885d80a13c0db1f8e263663d3faee8d8cdcf517b037b4502f6cc98f1ee6e5fb");
 						}else if(array.length >= 2 && array[1] != null && array[1].equals("patreon")){
@@ -54,10 +52,7 @@ public class CommandWSC extends CommandBase{
 							sendArray(player, devCommands);
 						}
 				}else if(array[0] != null && array[0].equals("mods")){
-					String[] mods = new String[]{
-						"Forestry Extras 2",
-						"Thaumcraft Extras 2"};
-					sendArray(player, mods);
+					sendSet(player, ModHelper.usingWsC);
 				}else if(array[0] != null && array[0].equals("date")){
 					sendMessage(player, DateHelper.getCurrentFullDate());
 				}else{
@@ -74,10 +69,16 @@ public class CommandWSC extends CommandBase{
 		return 0;
 	}
 	
+	public static void sendSet(EntityPlayer player, HashSet<String> text)
+	{
+		for(String s : text){
+			sendMessage(player, EnumChatFormatting.BLUE + s);
+		}
+	}
+	
 	public static void sendArray(EntityPlayer player, String[] text)
 	{
-		for(String s : text)
-		{
+		for(String s : text){
 			sendMessage(player, EnumChatFormatting.BLUE + s);
 		}
 	}

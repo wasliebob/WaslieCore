@@ -8,7 +8,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -31,7 +30,7 @@ public class ItemWE extends Item implements IWrench{
 
 	@Override
     public void registerIcons(IIconRegister ir){
-        itemIcon = Items.stick.getIcon(new ItemStack(Items.stick), 0);
+        itemIcon = ir.registerIcon(WaslieCore.modName.toLowerCase() + ":" + "worldedit");
 	}
 	
 	@Override
