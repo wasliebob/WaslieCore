@@ -137,7 +137,16 @@ public class MathHelper {
 		return average;
 	}
 	
-	public static double decreaseDecimals(double value, int decimals){
+	/**
+	 * @param value
+	 * number to change amount of decimals.
+	 * @param decimals
+	 * usage: 1 + amount of decimals
+	 * example: decimals = 10; means 1 decimal.
+	 * example: decimals = 100; means 2 decimals.
+	 * @return new decimal
+	 */
+	public static double changeDecimals(double value, int decimals){
 		double dec = (double)Math.round(value * decimals) / decimals;
 		return dec;
 	}
