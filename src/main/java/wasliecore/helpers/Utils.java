@@ -13,6 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import wasliecore.misc.TargetInformation;
 
 public class Utils {
 	/**
@@ -107,6 +108,21 @@ public class Utils {
 		if(mop != null)
 			return mop.blockZ;
 		return 0;
+	}
+	
+	/**
+	 * @author wasliebob
+	 */
+	public static TargetInformation getTargetInfo(EntityPlayer player){
+		Block block = Utils.getTargetBlock(player);
+		int meta = Utils.getTargetBlockMeta(player);
+		int x = Utils.getTargetX(player);
+		int y = Utils.getTargetY(player);
+		int z = Utils.getTargetZ(player);
+		
+		TargetInformation info = new TargetInformation(block, meta, x, y, z);
+		
+		return info;
 	}
 	
 	/**
