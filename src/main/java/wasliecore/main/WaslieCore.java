@@ -2,13 +2,11 @@ package wasliecore.main;
 
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import wasliecore.handlers.commands.CommandWSC;
-import wasliecore.handlers.events.OnPreRenderEvent;
 import wasliecore.helpers.FileHelper;
 import wasliecore.helpers.IMCHelper;
 import wasliecore.helpers.NBTHelper;
@@ -24,7 +22,6 @@ import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = WaslieCore.modName, name = WaslieCore.modName, version = "1.1")
 public class WaslieCore {
@@ -73,8 +70,8 @@ public class WaslieCore {
     	if((Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment")){
     		System.out.println("WaslieCore is running in a dev envoirment, ignoring all events");
     	}else{
-    		if(evt.getSide() == Side.CLIENT){
-    			MinecraftForge.EVENT_BUS.register(new OnPreRenderEvent());}
+//    		if(evt.getSide() == Side.CLIENT){
+//    			MinecraftForge.EVENT_BUS.register(new OnPreRenderEvent());}
     	}
     }
     
