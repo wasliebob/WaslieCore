@@ -175,6 +175,17 @@ public class Utils {
         	}
         }
     }
+	
+	/**
+	* @author wasliebob
+	*/
+	public static int getTargetBlockSide(EntityPlayer player){
+		MovingObjectPosition mop = getMovingObjectPosition(player);
+		if(mop != null){
+			return mop.sideHit;
+		}
+		return 0;
+	}
     
     /**
      * @author wasliebob
