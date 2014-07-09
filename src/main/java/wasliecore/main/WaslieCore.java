@@ -2,11 +2,13 @@ package wasliecore.main;
 
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import wasliecore.handlers.commands.CommandWSC;
+import wasliecore.handlers.events.StartupEvent;
 import wasliecore.helpers.FileHelper;
 import wasliecore.helpers.IMCHelper;
 import wasliecore.helpers.NBTHelper;
@@ -58,6 +60,15 @@ public class WaslieCore {
     	tag.setBoolean(IMCHelper.mod_wasliecore, true);
 
     	FMLInterModComms.sendMessage("WaslieCore", IMCHelper.message_register, tag);
+    	
+    	warningScreen();
+    }
+    
+    public void warningScreen(){
+    	NBTTagCompound tag = NBTHelper.createTagCompound();
+    	tag.setString(IMCHelper.mod_unstable, WaslieCore.modName);
+
+    	FMLInterModComms.sendMessage("WaslieCore", IMCHelper.message_unstable, tag);
     }
     
     @EventHandler
@@ -68,7 +79,7 @@ public class WaslieCore {
     	if((Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment")){
     		System.out.println("WaslieCore is running in a dev envoirment, ignoring all events");
     	}else{
-    		/** All events are getting registered here */
+    		MinecraftForge.EVENT_BUS.register(new StartupEvent());
     	}
     }
     
@@ -87,6 +98,12 @@ public class WaslieCore {
 			if (m.key.equalsIgnoreCase(IMCHelper.message_register)){
 				if(m.isNBTMessage()){
 					IMCHelper.handleIMCStuff(m);
+				}
+			}
+			
+			if (m.key.equalsIgnoreCase(IMCHelper.message_unstable)){
+				if(m.isNBTMessage()){
+					IMCHelper.handleUnstableIMCStuff(m);
 				}
 			}
 		}
