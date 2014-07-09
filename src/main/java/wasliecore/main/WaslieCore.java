@@ -38,6 +38,7 @@ public class WaslieCore {
     public static String configLocation;
     public static MiscRegister register_misc = new MiscRegister();
 	public static final Logger logger = LogManager.getLogger(WaslieCore.modName);
+	public static boolean isUnstable = false;
 	
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){	
@@ -61,7 +62,8 @@ public class WaslieCore {
 
     	FMLInterModComms.sendMessage("WaslieCore", IMCHelper.message_register, tag);
     	
-    	warningScreen();
+    	if(isUnstable)
+    		warningScreen();
     }
     
     public void warningScreen(){
