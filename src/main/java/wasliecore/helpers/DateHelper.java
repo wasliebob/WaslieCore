@@ -6,32 +6,27 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DateHelper {
-	public static String getCurrentDate()
-	{
+	public static String getCurrentDate(){
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM");
 		Date date = new Date();
 		return dateFormat.format(date);
 	}
 	
-	public static int getCurrentMonth()
-	{
+	public static int getCurrentMonth(){
 		int month = Calendar.getInstance().get(Calendar.MONTH);
 		return month;
 	}
 	
-	public static String getCurrentDay()
-	{
+	public static String getCurrentDay(){
 		int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 		return Integer.toString(day);
 	}
 	
-	public static String getCurrentFullDate()
-	{
+	public static String getCurrentFullDate(){
 		return getCurrentDay() + " " + getCurrentFullMonth();
 	}
 	
-	public static String getCurrentFullMonth()
-	{
+	public static String getCurrentFullMonth(){
 		int month = getCurrentMonth();
 		if(month == 0)
 			return "January";

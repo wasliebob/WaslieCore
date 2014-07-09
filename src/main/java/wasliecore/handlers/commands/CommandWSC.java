@@ -69,22 +69,19 @@ public class CommandWSC extends CommandBase{
 		return 0;
 	}
 	
-	public static void sendSet(EntityPlayer player, HashSet<String> text)
-	{
+	public static void sendSet(EntityPlayer player, HashSet<String> text){
 		for(String s : text){
 			sendMessage(player, EnumChatFormatting.BLUE + s);
 		}
 	}
 	
-	public static void sendArray(EntityPlayer player, String[] text)
-	{
+	public static void sendArray(EntityPlayer player, String[] text){
 		for(String s : text){
 			sendMessage(player, EnumChatFormatting.BLUE + s);
 		}
 	}
 	
-	public static void sendMessage(EntityPlayer player, String text)
-	{
+	public static void sendMessage(EntityPlayer player, String text){
 		player.addChatComponentMessage(new ChatComponentText(text));
 	}
 }

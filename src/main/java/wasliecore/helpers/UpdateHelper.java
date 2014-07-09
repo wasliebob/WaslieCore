@@ -11,8 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class UpdateHelper {
 	
 	@SideOnly(Side.CLIENT)
-	public static Double getVersion(String modName)
-	{
+	public static Double getVersion(String modName){
 		try{
 			URL url = new URL("https://dl.dropboxusercontent.com/u/46500170/Site/Builds/" + modName + "_UPDATE" + ".wasliecore");
 			Scanner scanner = new Scanner(url.openStream());
@@ -30,8 +29,7 @@ public class UpdateHelper {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static String getText(String modName)
-	{
+	public static String getText(String modName){
 		try{
 			URL url = new URL("https://dl.dropboxusercontent.com/u/46500170/Site/Builds/" + modName + "_UPDATE" + ".wasliecore");
 
@@ -51,8 +49,7 @@ public class UpdateHelper {
 	
 	
 	@SideOnly(Side.CLIENT)
-	public static HashMap<Double, String> getUpdate(String modName)
-	{
+	public static HashMap<Double, String> getUpdate(String modName){
 		try{
 			HashMap<Double, String> update = new HashMap<Double, String>();
 			URL url = new URL("https://dl.dropboxusercontent.com/u/46500170/Site/Builds/" + modName + "_UPDATE" + ".wasliecore");

@@ -8,8 +8,7 @@ public class MathHelper {
 	 * @param ticks
 	 * @return
 	 */
-	public static int tickToSecond(int ticks)
-	{
+	public static int tickToSecond(int ticks){
 		int seconds = ticks/20;
 		return seconds;
 	}
@@ -19,8 +18,7 @@ public class MathHelper {
 	 * @param seconds
 	 * @return
 	 */
-	public static int secondToTick(int seconds)
-	{
+	public static int secondToTick(int seconds){
 		int ticks = seconds*20;
 		return ticks;
 	}
@@ -30,8 +28,7 @@ public class MathHelper {
 	 * @param ticks
 	 * @return
 	 */
-	public static int ticksToMinutes(int ticks)
-	{
+	public static int ticksToMinutes(int ticks){
 		int seconds = ticks/20;
 		int minutes = seconds/60;
 		
@@ -43,8 +40,7 @@ public class MathHelper {
 	 * @param minutes
 	 * @return
 	 */
-	public static int minutesToTicks(int minutes)
-	{
+	public static int minutesToTicks(int minutes){
 		int seconds = minutes*60;
 		int ticks = seconds*20;
 		
@@ -56,8 +52,7 @@ public class MathHelper {
 	 * @param ticks
 	 * @return
 	 */
-	public static int ticksToHours(int ticks)
-	{
+	public static int ticksToHours(int ticks){
 		int seconds = ticks/20;
 		int minutes = seconds/60;
 		int hours  = minutes/60;
@@ -70,8 +65,7 @@ public class MathHelper {
 	 * @param hours
 	 * @return
 	 */
-	public static int hoursToTicks(int hours)
-	{
+	public static int hoursToTicks(int hours){
 		int minutes = hours*60;
 		int seconds = minutes*60;
 		int ticks = seconds*20;

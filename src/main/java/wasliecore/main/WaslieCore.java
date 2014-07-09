@@ -38,8 +38,7 @@ public class WaslieCore {
 	public static final Logger logger = LogManager.getLogger(WaslieCore.modName);
 	
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {	
+    public void preInit(FMLPreInitializationEvent event){	
     	proxy.init();
 		@SuppressWarnings("unused")
 		Config config = new Config();
@@ -65,19 +64,16 @@ public class WaslieCore {
     public void init(FMLInitializationEvent event){}
     
     @EventHandler
-    public void postInit(FMLPostInitializationEvent evt)
-    {
+    public void postInit(FMLPostInitializationEvent evt){
     	if((Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment")){
     		System.out.println("WaslieCore is running in a dev envoirment, ignoring all events");
     	}else{
-//    		if(evt.getSide() == Side.CLIENT){
-//    			MinecraftForge.EVENT_BUS.register(new OnPreRenderEvent());}
+    		/** All events are getting registered here */
     	}
     }
     
     @Mod.EventHandler
-    public void serverStart(FMLServerStartingEvent event)
-    {
+    public void serverStart(FMLServerStartingEvent event){
     	if((Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment")){
     		System.out.println("WaslieCore is running in a dev envoirment, ignoring all events");
     	}else{

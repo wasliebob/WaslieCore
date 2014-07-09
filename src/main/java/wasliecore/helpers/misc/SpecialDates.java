@@ -4,8 +4,7 @@ import wasliecore.helpers.DateHelper;
 import wasliecore.helpers.MathHelper;
 
 public class SpecialDates {
-	public static String getSpecialDay()
-	{
+	public static String getSpecialDay(){
 		if(DateHelper.getCurrentDate() == "1/1")
 			return "New Year";
 		

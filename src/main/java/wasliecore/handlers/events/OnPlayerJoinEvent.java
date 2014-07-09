@@ -13,8 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class OnPlayerJoinEvent {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-    public void joinEvent(EntityJoinWorldEvent e)
-    {
+    public void joinEvent(EntityJoinWorldEvent e){
 		if(!e.world.isRemote){
 			if(e.entity instanceof EntityPlayer){
 				EntityPlayer player = (EntityPlayer)e.entity;

@@ -12,10 +12,8 @@ import wasliecore.main.WaslieCore;
 
 public class FileHelper {
 	
-	public static String getSlash()
-	{
-		if(System.getProperty("os.name") != null)
-		{
+	public static String getSlash(){
+		if(System.getProperty("os.name") != null){
 			String os = System.getProperty("os.name");
 			if(os.startsWith("Windows")){
 				return "\\";
@@ -99,13 +97,11 @@ public class FileHelper {
 		}
 	}
 	
-	public static HashMap<String, Double> getDonators()
-	{
+	public static HashMap<String, Double> getDonators(){
 		return donators;
 	}
 	
-	public static void addDonators()
-	{
+	public static void addDonators(){
 		try{
 			URL url = new URL("https://dl.dropboxusercontent.com/u/46500170/Site/donator_list.txt");
 
@@ -124,13 +120,11 @@ public class FileHelper {
 	}
 	public static HashMap<String, Double> donators = new HashMap<String, Double>();
 	
-	public static boolean isDonator(String name)
-	{
+	public static boolean isDonator(String name){
 		return getDonators().containsKey(name);
 	}
 	
-	public static double getAmount(String name)
-	{
+	public static double getAmount(String name){
 		if(isDonator(name)){
 			return getDonators().get(name);
 		}else
