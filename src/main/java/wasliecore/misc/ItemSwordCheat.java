@@ -31,6 +31,7 @@ public class ItemSwordCheat extends ItemSword{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean i){
+		list.add(EnumChatFormatting.GREEN + "Damage: " + "5^36" + " ~");
 		list.add(EnumChatFormatting.RED + "Creative Only");
 	}
 }
