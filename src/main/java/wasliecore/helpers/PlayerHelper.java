@@ -5,7 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import wasliecore.misc.MaterialStack;
+import wasliecore.misc.infopackets.MaterialStack;
 
 public class PlayerHelper {
 	public static MaterialStack getBlockStackViewing(World world){

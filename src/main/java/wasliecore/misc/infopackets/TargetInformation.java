@@ -1,4 +1,4 @@
-package wasliecore.misc;
+package wasliecore.misc.infopackets;
 
 import net.minecraft.block.Block;
 

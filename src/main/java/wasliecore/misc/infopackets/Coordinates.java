@@ -1,4 +1,4 @@
-package wasliecore.misc;
+package wasliecore.misc.infopackets;
 
 public class Coordinates {
 	public Coordinates(int x, int y, int z){

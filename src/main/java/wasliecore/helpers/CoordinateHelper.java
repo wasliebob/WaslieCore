@@ -3,7 +3,7 @@ package wasliecore.helpers;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import wasliecore.misc.Coordinates;
+import wasliecore.misc.infopackets.Coordinates;
 
 public class CoordinateHelper {
 	public static Coordinates getPlayerCoordInfo(EntityPlayer player){

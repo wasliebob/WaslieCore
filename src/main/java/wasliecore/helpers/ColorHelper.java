@@ -2,7 +2,7 @@ package wasliecore.helpers;
 
 import java.awt.Color;
 
-import wasliecore.misc.ColorInformation;
+import wasliecore.misc.infopackets.ColorInformation;
 
 public class ColorHelper {
 	public static int getColorCodeFromRGB(int red, int green, int blue){

@@ -1,6 +1,8 @@
 package wasliecore.misc;
 
 import wasliecore.interfaces.IInitalization;
+import wasliecore.misc.items.ItemSwordCheat;
+import wasliecore.misc.items.ItemWE;
 
 public class MiscRegister implements IInitalization{
 

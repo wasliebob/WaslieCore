@@ -1,4 +1,4 @@
-package wasliecore.misc;
+package wasliecore.misc.items;
 
 import java.util.List;
 
