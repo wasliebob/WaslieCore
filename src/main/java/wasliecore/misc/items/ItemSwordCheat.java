@@ -15,7 +15,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ItemSwordCheat extends ItemSword{
 
 	public ItemSwordCheat() {
-		super(EnumHelper.addToolMaterial("CHEAT", 4, -1, 10F, 100000000000000000000000000000000000000F, 0));
+		super(EnumHelper.addToolMaterial("CHEAT", 4, -1, 10F, 0, 0));
 		setMaxStackSize(1);
 		setUnlocalizedName(WaslieCore.modName.toLowerCase() + "." + "item" + "." + "cheat sword");
 		setCreativeTab(CreativeTabs.tabCombat);
@@ -31,7 +31,7 @@ public class ItemSwordCheat extends ItemSword{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean i){
-		list.add(EnumChatFormatting.GREEN + "Damage: " + "5^36" + " ~");
+		list.add(EnumChatFormatting.GREEN + "Insta-Dead");
 		list.add(EnumChatFormatting.RED + "Creative Only");
 	}
 }
