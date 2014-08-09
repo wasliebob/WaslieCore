@@ -12,8 +12,7 @@ public class RewardHelper {
 	}
 	
 	public static ItemStack[] getReward(double amount){
-		if(amount != 0)
-		{
+		if(amount != 0){
 			if(rewards.containsKey(amount)){
 				return rewards.get(amount);
 			}else{

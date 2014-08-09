@@ -1,6 +1,7 @@
 package wasliecore.helpers;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
@@ -129,5 +130,45 @@ public class FileHelper {
 			return getDonators().get(name);
 		}else
 			return 0;
+	}
+	
+	public static ArrayList<String> readFile(File file){
+		ArrayList<String> content = new ArrayList<String>();
+		
+		try{
+			FileReader reader = new FileReader(file);
+			
+			Scanner scanner = new Scanner(reader);
+			
+			while(scanner.hasNextLine()){
+				content.add(scanner.nextLine());
+			}
+			scanner.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return content;
+	}
+	
+	public static ArrayList<String> readFileFormated(File file, String formatChar){
+		ArrayList<String> content = new ArrayList<String>();
+		
+		try{
+			FileReader reader = new FileReader(file);
+			
+			Scanner scanner = new Scanner(reader);
+			
+			while(scanner.hasNextLine()){
+				String[] cont = scanner.nextLine().split(formatChar);
+				for(String s : cont)
+					content.add(s);
+			}
+			scanner.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return content;
 	}
 }

@@ -1,9 +1,9 @@
 package wasliecore.helpers;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraft.util.StatCollector;
 
 public class LocalizationHelper {
 	public static String localize(String name, int line){
-		return LanguageRegistry.instance().getStringLocalization(name + "." + line);
+		return StatCollector.translateToLocal(name + "." + line);
 	}
 }

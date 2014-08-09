@@ -116,4 +116,12 @@ public class MathHelper {
 		double dec = (double)Math.round(value * decimals) / decimals;
 		return dec;
 	}
+	
+	public static int round(float value){
+		return Math.round(value);
+	}
+	
+	public static long round(double value){
+		return Math.round(value);
+	}
 }
