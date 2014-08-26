@@ -8,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import wasliecore.handlers.commands.CommandWSC;
-import wasliecore.handlers.events.OnEntityDamageEvent;
 import wasliecore.handlers.events.StartupEvent;
 import wasliecore.helpers.FileHelper;
 import wasliecore.helpers.IMCHelper;
@@ -44,8 +43,6 @@ public class WaslieCore {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){	
     	proxy.init();
-		@SuppressWarnings("unused")
-		Config config = new Config();
 		Config.loadConfig(event);
 		configLocation = event.getModConfigurationDirectory().toString();
 		
@@ -83,7 +80,6 @@ public class WaslieCore {
     		System.out.println("WaslieCore is running in a dev envoirment, ignoring all events");
     	}else{
     		MinecraftForge.EVENT_BUS.register(new StartupEvent());
-        	MinecraftForge.EVENT_BUS.register(new OnEntityDamageEvent());
 
     	}
     }
